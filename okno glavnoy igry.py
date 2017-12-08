@@ -19,6 +19,7 @@ class MyFrame(wx.Frame):
         #style = wx.TRANSPARENT_WINDOW if sys.platform.lower() == 'win32' else 0
         self.x_pad = 0
         self.y_pad = 0
+        self.schet_gig_cikl=0
 
         self.panel = wx.Panel(self, -1, style=wx.TRANSPARENT_WINDOW)
         self.btn1 = wx.Button(self.panel, label="Push Me")
@@ -181,99 +182,144 @@ class MyFrame(wx.Frame):
            name = wx.Image(name, type=wx.BITMAP_TYPE_ANY)
            pic.append(name)
       return   pic
+
+   def Glavnaja(self):
+       start1 = clock()
+       vhod=True
+       self.schet_gig_cikl = self.schet_gig_cikl+1
+       file_obj = open('real_01.txt', 'a')
+       file_obj2 = open('chet01.txt', 'a')
+       file_obj3 = open('log.txt', 'a')
+       dataMouse = self.initial_x_y()
+       dataPic = self.initial_pic()
+       # print[dataPic]
+
+       # self.leftClick()
+
+       while (vhod):
+           time.sleep(0.5)
+           self.mousePos(dataMouse[0][1])
+           self.leftClick()
+           time.sleep(30)
+           screen = self.ScreenShotChisla('coord_snapshot_vhoda.txt')
+           screen1 = self.ScreenShotChisla('coord_snapshot_vhoda2.txt')
+           vhod1 = wx.Image('vhod0.bmp', type=wx.BITMAP_TYPE_ANY)
+           vhod2 = wx.Image('vhod1.bmp', type=wx.BITMAP_TYPE_ANY)
+           vhod3 = wx.Image('vhod.bmp', type=wx.BITMAP_TYPE_ANY)
+           p = screen.GetData()
+           p1 = screen1.GetData()
+           p2 = vhod1.GetData()
+           p3 = vhod2.GetData()
+           p4= vhod3.GetData()
+           if p2 or p3 == p:
+               time.sleep(1)
+               tme = time.ctime(time.time())
+               file_obj3.write('Ne udalos voyti' + str(tme) + '\n')
+               time.sleep(30)
+               time.sleep(1)
+               self.mousePos(dataMouse[7][1])
+               time.sleep(1)
+               self.mousePos(dataMouse[46][1])
+               time.sleep(372)
+               continue
+           if  p4 == p1:
+               time.sleep(1)
+               self.mousePos(dataMouse[1][1])
+              # vhod = False
+               file_obj3.write('Vhod proshel uspeshno' + str(tme) + '\n')
+
+               break
+       file_obj3.close()
+       self.onPlacewindow("европейская рулетка премиум - william hill casino")
+       time.sleep(10)
+       self.mousePos(dataMouse[2][1])
+       self.leftClick()
+       steps = 0
+       seconds = 0
+       chet =0
+       while (steps < 10):
+           start = clock()
+           first0 = time.time()
+           steps = steps + 1
+           file_obj.write('n xoda' + str(steps) + '\n')
+           steps_vnutri_pervogo_cikla = 0
+           while (True):
+               time.sleep(1.5)
+               steps_vnutri_pervogo_cikla = steps_vnutri_pervogo_cikla + 1
+               screen = self.ScreenShotChisla('coord_snapshot.txt')
+               p = screen.GetData()
+               p2 = dataPic[37].GetData()
+               if p == p2:
+                   time.sleep(0.05)
+                   #print("есть вращение")
+                   # prod_cikla = False
+                   break
+               else:
+                   # time.sleep(0.1)
+                   self.mousePos(dataMouse[2][1])
+                   break
+           steps_vnutri_vtorogo_cikla = 0
+           while (True):
+               time.sleep(0.9)
+               steps_vnutri_vtorogo_cikla = steps_vnutri_vtorogo_cikla + 1
+               screen = self.ScreenShotChisla('coord_snapshot.txt')
+               p = screen.GetData()
+               p2 = dataPic[37].GetData()
+               if p == p2:
+                   # print("вращение не закончилось")
+                   # prod_cikla = False
+                   continue
+               else:
+                   # chislo=True
+                   for i in range(len(dataPic)):
+                       prod_cikla = True
+                       # p = screen.GetData()
+                       time.sleep(0.01)
+                       p2 = dataPic[i].GetData()
+                       if p == p2:
+                           print("выпал номер", i)
+                           #time.sleep(0.05)
+                           file_obj.write(str(i) + '\n')
+                           time.sleep(0.05)
+                           # chislo = False
+                           prod_cikla = False
+
+                           break
+
+               print('steps_vnutri_vtorogo_cikla',steps_vnutri_vtorogo_cikla )
+               if not prod_cikla:
+                   break
+           end1 = clock()
+           print('steps', steps, 'Время:', end1 - start)
+           first1 = time.time()
+           seconds = seconds + (first1 - first0)
+           if seconds > 16:
+               seconds = 0
+               screen = self.ScreenShotChisla('coord_snapshot_prodolj.txt')
+               p = screen.GetData()
+               prodolji = wx.Image('prodoljenie.bmp', type=wx.BITMAP_TYPE_ANY)
+               p2 = prodolji.GetData()
+               if p == p2:
+                   self.mousePos(dataMouse[45][1])
+                   chet = chet+1
+                   file_obj2.write(str(chet) + '\n')
+       end1 = clock()
+       promejutok = end1 - start1
+       file_obj.write('vremja raboty' + str(promejutok) + '\n')
+       file_obj.close()
+       file_obj2.close()
+       time.sleep(0.6)
+       self.mousePos(dataMouse[6][1])
+       time.sleep(1)
+       self.mousePos(dataMouse[7][1])
+       time.sleep(1)
+       self.mousePos(dataMouse[46][1])
+       time.sleep(10)
+       if self.schet_gig_cikl <2:
+           self.Glavnaja()
    def OnButton(self, event):
         """Called when self.btn1 is clicked"""
-        start1 = clock()
-
-        file_obj = open('real_01.txt', 'a')
-        dataMouse = self.initial_x_y()
-        dataPic =  self.initial_pic()
-        #print[dataPic]
-        self.mousePos(dataMouse[0][1])
-        time.sleep(0.2)
-        # self.leftClick()
-        time.sleep(6)
-        self.mousePos(dataMouse[1][1])
-        time.sleep(7)
-        self.onPlacewindow("европейская рулетка премиум - william hill casino")
-        time.sleep(7)
-        self.mousePos(dataMouse[2][1])
-        steps = 0
-        seconds = 0
-        while (steps<2):
-            start = clock()
-            first0 = time.time()
-            steps=steps+1
-            file_obj.write('n xoda'+str(steps) + '\n')
-            steps_vnutri_pervogo_cikla = 0
-            while (True):
-                time.sleep(2)
-                steps_vnutri_pervogo_cikla = steps_vnutri_pervogo_cikla +1
-                screen = self.ScreenShotChisla('coord_snapshot.txt')
-                p = screen.GetData()
-                p2 = dataPic[37].GetData()
-                if p == p2:
-                    #print("есть вращение")
-                    #prod_cikla = False
-                    break
-                else:
-                   # time.sleep(0.1)
-                    self.mousePos(dataMouse[2][1])
-            steps_vnutri_vtorogo_cikla = 0
-            while (True):
-                time.sleep(0.3)
-                steps_vnutri_vtorogo_cikla = steps_vnutri_vtorogo_cikla + 1
-                screen = self.ScreenShotChisla('coord_snapshot.txt')
-                p = screen.GetData()
-                p2 = dataPic[37].GetData()
-                if p == p2:
-                    #print("вращение не закончилось")
-                    # prod_cikla = False
-                    continue
-                else:
-                    #chislo=True
-                    for i in range(len(dataPic)):
-                        prod_cikla = True
-                        #p = screen.GetData()
-                        #time.sleep(0.05)
-                        p2 = dataPic[i].GetData()
-                        if p == p2:
-                            print("выпал номер", i)
-
-
-                            file_obj.write(str(i) + '\n')
-
-
-                            # chislo = False
-                            prod_cikla = False
-
-                            break
-
-               # print('steps_vnutri_vtorogo_cikla',steps_vnutri_vtorogo_cikla )
-                if  not prod_cikla:
-                   break
-            end1 = clock()
-            print('steps',steps,'Время:',end1-start)
-            first1 = time.time()
-            seconds = seconds+(first1-first0)
-            if seconds> 16:
-                seconds=0
-                screen = self.ScreenShotChisla('coord_snapshot_prodolj.txt')
-                p = screen.GetData()
-                prodolji = wx.Image('prodoljenie.bmp', type=wx.BITMAP_TYPE_ANY)
-                p2 = prodolji.GetData()
-                if p == p2:
-                    self.mousePos(dataMouse[45][1])
-        end1 = clock()
-        promejutok =end1-start1
-        file_obj.write('время работы' + str(promejutok) + '\n')
-        file_obj.close()
-        time.sleep(0.6)
-        self.mousePos(dataMouse[6][1])
-        time.sleep(1)
-        self.mousePos(dataMouse[7][1])
-        time.sleep(1)
-        self.mousePos(dataMouse[46][1])
+        self.Glavnaja()
 if __name__ == "__main__":
  app = MyApp(False)
  app.MainLoop()
