@@ -1,6 +1,9 @@
 import wx, sys
 import json
+import random
+import subprocess
 import win32api, win32gui, win32con, time
+from datetime import datetime, timedelta
 from time import clock
 class MyApp(wx.App): # создаем класс оконной программы
   def OnInit(self): # инициализация программы
@@ -156,9 +159,16 @@ class MyFrame(wx.Frame):
            data2 = json.load(f)
 
        self.data_fin2 = []
-       i = 0
+
        for item in data2:  # приводим к типу Python
            self.data_fin2.append(list(item))
+
+       with open('xy_coord2.txt', 'r') as f:  # извлекаем  из файла
+           data4 = json.load(f)
+
+       self.data_vhod4 = []
+       for item in data4:  # приводим к типу Python
+           self.data_vhod4.append(list(item))
 
        # print('список координат x y', self.data_fin2)  # проверка готового результата
        # # все первые индексы отражают имя координаты
@@ -175,6 +185,31 @@ class MyFrame(wx.Frame):
        # print(self.data_fin2[2][1][1])  # y=252
        return self.data_fin2
 
+   def initial_x_y2(self):
+
+
+       with open('xy_coord2.txt', 'r') as f:  # извлекаем  из файла
+           data4 = json.load(f)
+
+       self.data_vhod4 = []
+       for item in data4:  # приводим к типу Python
+           self.data_vhod4.append(list(item))
+
+       # print('список координат x y', self.data_fin2)  # проверка готового результата
+       # # все первые индексы отражают имя координаты
+       # print(self.data_fin2[0][0]) #icon
+       # print(self.data_fin2[1][0]) #table
+       # print(self.data_fin2[2][0]) #start
+       # # все следущие индексы выдают список  координат
+       # print(self.data_fin2[0][1])  # [291, 207]
+       # print(self.data_fin2[1][1])  # [163, 195]
+       # print(self.data_fin2[2][1])  # [242, 252]
+       # # следущий третий индекс выдает по отдельности x и y  координат
+       # print(self.data_fin2[0][1][0])  # x=291
+       # print(self.data_fin2[1][1][0])  # x=163
+       # print(self.data_fin2[2][1][1])  # y=252
+       return self.data_vhod4
+
    def initial_pic(self):
       pic=[]
       for i in range(38):
@@ -182,7 +217,13 @@ class MyFrame(wx.Frame):
            name = wx.Image(name, type=wx.BITMAP_TYPE_ANY)
            pic.append(name)
       return   pic
+   def vremja_str(self):
 
+       now = datetime.now()
+       now = now + timedelta(hours=0)
+       tme = now.strftime("%d,%m,%y %I.%M.%S")  # %d,%m,%y
+       # now = now + timedelta(hours=0)
+       return tme
    def Glavnaja(self):
        start1 = clock()
        vhod=True
@@ -191,6 +232,7 @@ class MyFrame(wx.Frame):
        file_obj2 = open('chet01.txt', 'a')
        file_obj3 = open('log.txt', 'a')
        dataMouse = self.initial_x_y()
+       dataMouse2 = self.initial_x_y2()
        dataPic = self.initial_pic()
        # print[dataPic]
 
@@ -198,38 +240,84 @@ class MyFrame(wx.Frame):
 
        while (vhod):
            time.sleep(0.5)
-           self.mousePos(dataMouse[0][1])
-           self.leftClick()
-           time.sleep(30)
+           game = subprocess.Popen(["C:\Program Files (x86)\William Hill Casino\casino.exe"], stdin=subprocess.PIPE,
+                                   stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=False)
+           time.sleep(50)
            screen = self.ScreenShotChisla('coord_snapshot_vhoda.txt')
+           tme = self.vremja_str()
+           name_screen_log1 = 'screen_log1'+tme+'.bmp'
+           screen.SaveFile(name_screen_log1, wx.BITMAP_TYPE_BMP)
+           time.sleep(10)
            screen1 = self.ScreenShotChisla('coord_snapshot_vhoda2.txt')
-           vhod1 = wx.Image('vhod0.bmp', type=wx.BITMAP_TYPE_ANY)
-           vhod2 = wx.Image('vhod1.bmp', type=wx.BITMAP_TYPE_ANY)
-           vhod3 = wx.Image('vhod.bmp', type=wx.BITMAP_TYPE_ANY)
+           name_screen1_log2 = 'screen_log2' + tme + '.bmp'
+           screen1.SaveFile(name_screen1_log2, wx.BITMAP_TYPE_BMP)
+           vhod1 = wx.Image('vhod0.bmp', type=wx.BITMAP_TYPE_ANY) # произошла ошибка
+           vhod2 = wx.Image('vhod1.bmp', type=wx.BITMAP_TYPE_ANY) # завис на загрузке
+           vhod3 = wx.Image('vhod.bmp', type=wx.BITMAP_TYPE_ANY) # успешный вход
+           vhod4 = wx.Image('vhod2.bmp', type=wx.BITMAP_TYPE_ANY) # вообще не загрузился
+
+
            p = screen.GetData()
            p1 = screen1.GetData()
-           p2 = vhod1.GetData()
+           p_2 = vhod1.GetData()
            p3 = vhod2.GetData()
            p4= vhod3.GetData()
-           if p2 or p3 == p:
+           p5 =vhod4.GetData()
+           if p5 == p1:
                time.sleep(1)
-               tme = time.ctime(time.time())
-               file_obj3.write('Ne udalos voyti' + str(tme) + '\n')
-               time.sleep(30)
+               tme = self.vremja_str()
+               file_obj3.write('terminate process' + tme + '\n')
                time.sleep(1)
-               self.mousePos(dataMouse[7][1])
-               time.sleep(1)
-               self.mousePos(dataMouse[46][1])
-               time.sleep(372)
+               game.terminate()
+               time.sleep(300)
                continue
+           if p_2  == p:
+               print('proizoshla oshibka')
+               tme = self.vremja_str()
+               file_obj3.write('Ne udalos voyti poizoshla oshibka' + tme + '\n')
+               time.sleep(5)
+               time.sleep(1)
+               game.terminate()
+               time.sleep(3720)
+               continue
+           if p3 == p:
+               print('zavis pri zagruzke')
+               tme = self.vremja_str()
+               file_obj3.write('Ne udalos voyti zavis pri zagruzke' + tme + '\n')
+               time.sleep(5)
+               time.sleep(1)
+               game.terminate()
+               time.sleep(3720)
+               continue
+
            if  p4 == p1:
                time.sleep(1)
                self.mousePos(dataMouse[1][1])
+               time.sleep(10)
+               tme = self.vremja_str()
+               screen3 = self.ScreenShotChisla('coord_snapshot_vhoda.txt')
+               name_screen3_log3 = 'screen3_log3' + tme + '.bmp'
+               screen3.SaveFile(name_screen3_log3, wx.BITMAP_TYPE_BMP)
+               vhod10 = wx.Image('vhod_3.bmp', type=wx.BITMAP_TYPE_ANY)
+               p00 = screen3.GetData()
+               p10 = vhod10.GetData()
+               time.sleep(1)
+               if p00 == p10:
+                   time.sleep(1)
+                   self.mousePos(dataMouse2[0][1])
+                   time.sleep(1)
+                   self.mousePos(dataMouse2[1][1])
+                   # time.sleep(1)
+                   # self.mousePos(dataMouse[1][1])
               # vhod = False
-               file_obj3.write('Vhod proshel uspeshno' + str(tme) + '\n')
+                   file_obj3.write('Vhod proshel uspeshno 1 ' + tme + '\n')
+               else:
+
+                 file_obj3.write('Vhod proshel uspeshno 2 ' + tme + '\n')
 
                break
        file_obj3.close()
+       time.sleep(10)
        self.onPlacewindow("европейская рулетка премиум - william hill casino")
        time.sleep(10)
        self.mousePos(dataMouse[2][1])
@@ -237,7 +325,9 @@ class MyFrame(wx.Frame):
        steps = 0
        seconds = 0
        chet =0
-       while (steps < 10):
+       chicloVrach = random.randint(250, 290)
+       while ( steps < chicloVrach):
+           chicloVrach = random.randint(220, 290)
            start = clock()
            first0 = time.time()
            steps = steps + 1
@@ -262,11 +352,11 @@ class MyFrame(wx.Frame):
            while (True):
                time.sleep(0.9)
                steps_vnutri_vtorogo_cikla = steps_vnutri_vtorogo_cikla + 1
-               screen = self.ScreenShotChisla('coord_snapshot.txt')
-               p = screen.GetData()
+               screen5 = self.ScreenShotChisla('coord_snapshot.txt')
+               p = screen5.GetData()
                p2 = dataPic[37].GetData()
                if p == p2:
-                   # print("вращение не закончилось")
+                   #print("вращение не закончилось")
                    # prod_cikla = False
                    continue
                else:
@@ -293,7 +383,9 @@ class MyFrame(wx.Frame):
            print('steps', steps, 'Время:', end1 - start)
            first1 = time.time()
            seconds = seconds + (first1 - first0)
-           if seconds > 16:
+
+           if seconds > 12:
+               start10 = clock()
                seconds = 0
                screen = self.ScreenShotChisla('coord_snapshot_prodolj.txt')
                p = screen.GetData()
@@ -303,6 +395,8 @@ class MyFrame(wx.Frame):
                    self.mousePos(dataMouse[45][1])
                    chet = chet+1
                    file_obj2.write(str(chet) + '\n')
+               end10 = clock()
+               print('проверка на окно продолжения Время выполнения: ', end10 - start10)
        end1 = clock()
        promejutok = end1 - start1
        file_obj.write('vremja raboty' + str(promejutok) + '\n')
@@ -310,12 +404,13 @@ class MyFrame(wx.Frame):
        file_obj2.close()
        time.sleep(0.6)
        self.mousePos(dataMouse[6][1])
-       time.sleep(1)
-       self.mousePos(dataMouse[7][1])
-       time.sleep(1)
-       self.mousePos(dataMouse[46][1])
-       time.sleep(10)
-       if self.schet_gig_cikl <2:
+       time.sleep(0.1)
+       # self.mousePos(dataMouse[7][1])
+       # time.sleep(1)
+       # self.mousePos(dataMouse[46][1])
+       game.terminate()
+       time.sleep(60)
+       if self.schet_gig_cikl <1:
            self.Glavnaja()
    def OnButton(self, event):
         """Called when self.btn1 is clicked"""

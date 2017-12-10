@@ -10,7 +10,7 @@ class MyFrame(wx.Frame):
         wx.Frame.__init__(self, parent, id, title, size = (370, 370))
         self.panel = wx.Panel(self, -1)
         self.btn1 = wx.Button(self.panel, label="Сканировать координаты ")
-        self.bitmap = wx.Bitmap('myImage_frame_r.bmp')
+        self.bitmap = wx.Bitmap('control_r.bmp')
         self.w_img = self.bitmap.GetWidth()
         self.h_img = self.bitmap.GetHeight()
         #wx.EVT_PAINT(self, self.OnPaint)
@@ -24,7 +24,7 @@ class MyFrame(wx.Frame):
         """Called when self.btn1 is clicked"""
 
         # self.panel.BackgroundColour = wx.WHITE
-        f = self.coordWindow('coordscanprodoljenie')
+        f = self.coordWindow('coordscancontrol')
         pos = self.panel.GetSize()
         self.w_img
         self.h_img
@@ -40,7 +40,7 @@ class MyFrame(wx.Frame):
         x_cord2 = int(x_cord2)
         y_cord2 = int(y_cord2)
         coordinaty_snap = [x_cord,y_cord,x_cord2,y_cord2]
-        with open('coord_snapshot_prodolj.txt', 'w') as jsonfile: json.dump(coordinaty_snap, jsonfile)  # сохраняем в файл
+        with open('coord_snapshot_control.txt', 'w') as jsonfile: json.dump(coordinaty_snap, jsonfile)  # сохраняем в файл
 
 
         # for i in range(len(self.coord_hlp)):
@@ -85,7 +85,7 @@ class MyFrame(wx.Frame):
 
 class MyApp(wx.App):
     def OnInit(self):
-        frame = MyFrame(None, -1, 'CoordScanProdoljenie')
+        frame = MyFrame(None, -1, 'CoordScanControl')
         frame.Show(True)
         self.SetTopWindow(frame)
 

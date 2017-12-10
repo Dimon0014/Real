@@ -25,7 +25,7 @@ class MyForm(wx.Frame):
         # Делает скриншот выбранного фрагмента экрана
         # Основано на методе, предложенном Андреа Гавана
         start1 = clock()
-        with open('coord_snapshot.txt', 'r') as f:  # извлекаем  из файла
+        with open('coord_snapshot_vhoda.txt', 'r') as f:  # извлекаем  из файла
             data2 = json.load(f)
         print('', data2)
         rect1 = data2 #win32gui.GetWindowRect(hwnd)
@@ -77,7 +77,7 @@ class MyForm(wx.Frame):
         # Select the Bitmap out of the memory DC by selecting a new
         # uninitialized Bitmap
         memDC.SelectObject(wx.NullBitmap)
-        fileName='snapy2.bmp'
+        fileName='vhod_3.bmp'
 
 
 

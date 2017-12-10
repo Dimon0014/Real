@@ -4,7 +4,7 @@ from email.mime.text import MIMEText
 from email.mime.application import MIMEApplication
 fromaddr = "toropov0014@mail.ru"
 toaddr = "toropov0014@mail.ru"
-mypass = "kirgudu0014"
+mypass = "0014kirgudu"
 
 msg = MIMEMultipart()
 msg['From'] = fromaddr
