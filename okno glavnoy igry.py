@@ -1,6 +1,7 @@
 import wx, sys
 import json
 import random
+import  psutil
 import subprocess
 import win32api, win32gui, win32con, time
 from datetime import datetime, timedelta
@@ -227,7 +228,6 @@ class MyFrame(wx.Frame):
    def Glavnaja(self):
        start1 = clock()
        vhod=True
-       self.schet_gig_cikl = self.schet_gig_cikl+1
        file_obj = open('real_01.txt', 'a')
        file_obj2 = open('chet01.txt', 'a')
        file_obj3 = open('log.txt', 'a')
@@ -240,14 +240,16 @@ class MyFrame(wx.Frame):
 
        while (vhod):
            time.sleep(0.5)
+           self.schet_gig_cikl += 1
            game = subprocess.Popen(["C:\Program Files (x86)\William Hill Casino\casino.exe"], stdin=subprocess.PIPE,
                                    stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=False)
-           time.sleep(50)
+           time.sleep(80)
            screen = self.ScreenShotChisla('coord_snapshot_vhoda.txt')
            tme = self.vremja_str()
            name_screen_log1 = 'screen_log1'+tme+'.bmp'
            screen.SaveFile(name_screen_log1, wx.BITMAP_TYPE_BMP)
-           time.sleep(10)
+           time.sleep(12)
+
            screen1 = self.ScreenShotChisla('coord_snapshot_vhoda2.txt')
            name_screen1_log2 = 'screen_log2' + tme + '.bmp'
            screen1.SaveFile(name_screen1_log2, wx.BITMAP_TYPE_BMP)
@@ -263,13 +265,13 @@ class MyFrame(wx.Frame):
            p3 = vhod2.GetData()
            p4= vhod3.GetData()
            p5 =vhod4.GetData()
-           if p5 == p1:
+           if p5 == p:
                time.sleep(1)
                tme = self.vremja_str()
                file_obj3.write('terminate process' + tme + '\n')
                time.sleep(1)
                game.terminate()
-               time.sleep(300)
+               time.sleep(600)
                continue
            if p_2  == p:
                print('proizoshla oshibka')
@@ -293,7 +295,7 @@ class MyFrame(wx.Frame):
            if  p4 == p1:
                time.sleep(1)
                self.mousePos(dataMouse[1][1])
-               time.sleep(10)
+               time.sleep(12)
                tme = self.vremja_str()
                screen3 = self.ScreenShotChisla('coord_snapshot_vhoda.txt')
                name_screen3_log3 = 'screen3_log3' + tme + '.bmp'
@@ -325,9 +327,9 @@ class MyFrame(wx.Frame):
        steps = 0
        seconds = 0
        chet =0
-       chicloVrach = random.randint(250, 290)
+       chicloVrach = random.randint(395, 433)
        while ( steps < chicloVrach):
-           chicloVrach = random.randint(220, 290)
+           chicloVrach = random.randint(395, 433)
            start = clock()
            first0 = time.time()
            steps = steps + 1
@@ -356,7 +358,7 @@ class MyFrame(wx.Frame):
                p = screen5.GetData()
                p2 = dataPic[37].GetData()
                if p == p2:
-                   #print("вращение не закончилось")
+                   print("вращение не закончилось")
                    # prod_cikla = False
                    continue
                else:
@@ -377,6 +379,15 @@ class MyFrame(wx.Frame):
                            break
 
                print('steps_vnutri_vtorogo_cikla',steps_vnutri_vtorogo_cikla )
+
+               if steps_vnutri_vtorogo_cikla>29:
+                   game.terminate()
+                   time.sleep(5)
+                   file_obj3 = open('log.txt', 'a')
+                   file_obj3.write('cik igry: '+str(self.schet_gig_cikl)+'Beskonechyi vtoroy cikl ' + tme + '\n')
+                   file_obj3.close()
+                   time.sleep(600)
+                   self.Glavnaja()
                if not prod_cikla:
                    break
            end1 = clock()
@@ -397,6 +408,7 @@ class MyFrame(wx.Frame):
                    file_obj2.write(str(chet) + '\n')
                end10 = clock()
                print('проверка на окно продолжения Время выполнения: ', end10 - start10)
+           print('cik igry: ',self.schet_gig_cikl)
        end1 = clock()
        promejutok = end1 - start1
        file_obj.write('vremja raboty' + str(promejutok) + '\n')
@@ -409,8 +421,8 @@ class MyFrame(wx.Frame):
        # time.sleep(1)
        # self.mousePos(dataMouse[46][1])
        game.terminate()
-       time.sleep(60)
-       if self.schet_gig_cikl <1:
+       time.sleep(1267)
+       if self.schet_gig_cikl <9:
            self.Glavnaja()
    def OnButton(self, event):
         """Called when self.btn1 is clicked"""

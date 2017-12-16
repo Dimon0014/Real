@@ -40,7 +40,7 @@ class MyForm(wx.Frame):
         Основано на методе, предложенном Андреа Гавана
         """
         start1 = clock()
-        with open('coord_snapshot.txt', 'r') as f:  # извлекаем  из файла
+        with open('coord_snapshot_vhoda.txt', 'r') as f:  # извлекаем  из файла
             data2 = json.load(f)
         print('', data2)
         rect1 = data2  # win32gui.GetWindowRect(hwnd)
@@ -102,10 +102,10 @@ class MyForm(wx.Frame):
                                           # освобождение будет автоматическим если больше не буде обращения к
                                           #  объекту  wx.MemoryDC. То есть освобождать надо если планируем еще
                                           #  использовать для другой картинки. В данном случае можно и не освобождать
-        name='myImage_02_.bmp'
+        name='vhod2.bmp'
         #
         bmp0 =wx.Image(name, type=wx.BITMAP_TYPE_ANY)
-        name = 'myImage_02_1.bmp'
+        name = 'vhod_2.bmp'
         #
         bmp1 = wx.Image(name, type=wx.BITMAP_TYPE_ANY)
         # bmp2 =wx.Bitmap(bmp0)
@@ -132,7 +132,7 @@ class MyForm(wx.Frame):
         # fileName3 = "myImage_02_3.bmp"
 
 
-        img.SaveFile('proba.bmp', wx.BITMAP_TYPE_BMP)
+        img.SaveFile('vhod__2.bmp', wx.BITMAP_TYPE_BMP)
         # img2.SaveFile(fileName2, wx.BITMAP_TYPE_BMP)
         # img3.SaveFile(fileName3, wx.BITMAP_TYPE_BMP)
         # f_=(0, 0)

@@ -1,4 +1,3 @@
-
 n xoda1
 35
 n xoda2
