@@ -1,0 +1,792 @@
+n xoda1
+33
+n xoda2
+17
+n xoda3
+3
+n xoda4
+19
+n xoda5
+0
+n xoda6
+13
+n xoda7
+10
+n xoda8
+21
+n xoda9
+18
+n xoda10
+14
+n xoda11
+34
+n xoda12
+13
+n xoda13
+31
+n xoda14
+36
+n xoda15
+12
+n xoda16
+16
+n xoda17
+16
+n xoda18
+24
+n xoda19
+19
+n xoda20
+14
+n xoda21
+9
+n xoda22
+17
+n xoda23
+1
+n xoda24
+4
+n xoda25
+6
+n xoda26
+1
+n xoda27
+25
+n xoda28
+25
+n xoda29
+23
+n xoda30
+9
+n xoda31
+11
+n xoda32
+18
+n xoda33
+35
+n xoda34
+1
+n xoda35
+12
+n xoda36
+12
+n xoda37
+7
+n xoda38
+11
+n xoda39
+23
+n xoda40
+32
+n xoda41
+14
+n xoda42
+20
+n xoda43
+36
+n xoda44
+35
+n xoda45
+24
+n xoda46
+1
+n xoda47
+26
+n xoda48
+26
+n xoda49
+5
+n xoda50
+20
+n xoda51
+35
+n xoda52
+21
+n xoda53
+29
+n xoda54
+35
+n xoda55
+12
+n xoda56
+12
+n xoda57
+32
+n xoda58
+10
+n xoda59
+20
+n xoda60
+1
+n xoda61
+19
+n xoda62
+23
+n xoda63
+24
+n xoda64
+0
+n xoda65
+16
+n xoda66
+22
+n xoda67
+13
+n xoda68
+10
+n xoda69
+12
+n xoda70
+30
+n xoda71
+32
+n xoda72
+20
+n xoda73
+17
+n xoda74
+6
+n xoda75
+8
+n xoda76
+35
+n xoda77
+1
+n xoda78
+15
+n xoda79
+33
+n xoda80
+34
+n xoda81
+0
+n xoda82
+11
+n xoda83
+11
+n xoda84
+29
+n xoda85
+34
+n xoda86
+36
+n xoda87
+35
+n xoda88
+27
+n xoda89
+28
+n xoda90
+0
+n xoda91
+14
+n xoda92
+19
+n xoda93
+33
+n xoda94
+15
+n xoda95
+19
+n xoda96
+0
+n xoda97
+23
+n xoda98
+12
+n xoda99
+2
+n xoda100
+35
+n xoda101
+9
+n xoda102
+13
+n xoda103
+32
+n xoda104
+9
+n xoda105
+1
+n xoda106
+4
+n xoda107
+19
+n xoda108
+12
+n xoda109
+13
+n xoda110
+25
+n xoda111
+11
+n xoda112
+21
+n xoda113
+16
+n xoda114
+15
+n xoda115
+36
+n xoda116
+36
+n xoda117
+27
+n xoda118
+33
+n xoda119
+32
+n xoda120
+36
+n xoda121
+30
+n xoda122
+24
+n xoda123
+11
+n xoda124
+23
+n xoda125
+17
+n xoda126
+30
+n xoda127
+12
+n xoda128
+23
+n xoda129
+12
+n xoda130
+12
+n xoda131
+8
+n xoda132
+7
+n xoda133
+6
+n xoda134
+19
+n xoda135
+4
+n xoda136
+27
+n xoda137
+14
+n xoda138
+35
+n xoda139
+0
+n xoda140
+10
+n xoda141
+24
+n xoda142
+27
+n xoda143
+22
+n xoda144
+0
+n xoda145
+28
+n xoda146
+21
+n xoda147
+14
+n xoda148
+33
+n xoda149
+7
+n xoda150
+7
+n xoda151
+14
+n xoda152
+14
+n xoda153
+12
+n xoda154
+26
+n xoda155
+16
+n xoda156
+31
+n xoda157
+14
+n xoda158
+1
+n xoda159
+30
+n xoda160
+1
+n xoda161
+7
+n xoda162
+32
+n xoda163
+16
+n xoda164
+14
+n xoda165
+36
+n xoda166
+16
+n xoda167
+0
+n xoda168
+32
+n xoda169
+29
+n xoda170
+9
+n xoda171
+33
+n xoda172
+12
+n xoda173
+0
+n xoda174
+34
+n xoda175
+4
+n xoda176
+19
+n xoda177
+11
+n xoda178
+17
+n xoda179
+8
+n xoda180
+29
+n xoda181
+7
+n xoda182
+21
+n xoda183
+5
+n xoda184
+32
+n xoda185
+6
+n xoda186
+8
+n xoda187
+30
+n xoda188
+32
+n xoda189
+17
+n xoda190
+20
+n xoda191
+9
+n xoda192
+9
+n xoda193
+24
+n xoda194
+33
+n xoda195
+9
+n xoda196
+24
+n xoda197
+15
+n xoda198
+11
+n xoda199
+11
+n xoda200
+25
+n xoda201
+9
+n xoda202
+7
+n xoda203
+12
+n xoda204
+25
+n xoda205
+25
+n xoda206
+15
+n xoda207
+5
+n xoda208
+11
+n xoda209
+3
+n xoda210
+24
+n xoda211
+22
+n xoda212
+8
+n xoda213
+10
+n xoda214
+31
+n xoda215
+31
+n xoda216
+25
+n xoda217
+25
+n xoda218
+3
+n xoda219
+28
+n xoda220
+28
+n xoda221
+12
+n xoda222
+12
+n xoda223
+12
+n xoda224
+28
+n xoda225
+35
+n xoda226
+29
+n xoda227
+11
+n xoda228
+21
+n xoda229
+24
+n xoda230
+1
+n xoda231
+7
+n xoda232
+4
+n xoda233
+24
+n xoda234
+4
+n xoda235
+33
+n xoda236
+33
+n xoda237
+21
+n xoda238
+13
+n xoda239
+20
+n xoda240
+30
+n xoda241
+2
+n xoda242
+18
+n xoda243
+33
+n xoda244
+18
+n xoda245
+10
+n xoda246
+8
+n xoda247
+24
+n xoda248
+4
+n xoda249
+26
+n xoda250
+27
+n xoda251
+12
+n xoda252
+6
+n xoda253
+22
+n xoda254
+1
+n xoda255
+22
+n xoda256
+10
+n xoda257
+13
+n xoda258
+5
+n xoda259
+32
+n xoda260
+12
+n xoda261
+35
+n xoda262
+24
+n xoda263
+8
+n xoda264
+22
+n xoda265
+35
+n xoda266
+28
+n xoda267
+8
+n xoda268
+28
+n xoda269
+35
+n xoda270
+4
+n xoda271
+1
+n xoda272
+7
+n xoda273
+17
+n xoda274
+19
+n xoda275
+23
+n xoda276
+3
+n xoda277
+2
+n xoda278
+33
+n xoda279
+4
+n xoda280
+34
+n xoda281
+36
+n xoda282
+31
+n xoda283
+22
+n xoda284
+28
+n xoda285
+36
+n xoda286
+23
+n xoda287
+22
+n xoda288
+34
+n xoda289
+16
+n xoda290
+31
+n xoda291
+14
+n xoda292
+32
+n xoda293
+23
+n xoda294
+11
+n xoda295
+25
+n xoda296
+15
+n xoda297
+10
+n xoda298
+7
+n xoda299
+21
+n xoda300
+0
+n xoda301
+19
+n xoda302
+25
+n xoda303
+15
+n xoda304
+23
+n xoda305
+6
+n xoda306
+23
+n xoda307
+9
+n xoda308
+8
+n xoda309
+8
+n xoda310
+0
+n xoda311
+27
+n xoda312
+18
+n xoda313
+18
+n xoda314
+31
+n xoda315
+30
+n xoda316
+20
+n xoda317
+3
+n xoda318
+17
+n xoda319
+18
+n xoda320
+18
+n xoda321
+12
+n xoda322
+32
+n xoda323
+29
+n xoda324
+17
+n xoda325
+5
+n xoda326
+24
+n xoda327
+12
+n xoda328
+25
+n xoda329
+23
+n xoda330
+18
+n xoda331
+25
+n xoda332
+0
+n xoda333
+23
+n xoda334
+5
+n xoda335
+25
+n xoda336
+11
+n xoda337
+23
+n xoda338
+17
+n xoda339
+11
+n xoda340
+28
+n xoda341
+7
+n xoda342
+33
+n xoda343
+28
+n xoda344
+19
+n xoda345
+5
+n xoda346
+11
+n xoda347
+24
+n xoda348
+27
+n xoda349
+0
+n xoda350
+35
+n xoda351
+35
+n xoda352
+34
+n xoda353
+24
+n xoda354
+28
+n xoda355
+4
+n xoda356
+16
+n xoda357
+33
+n xoda358
+8
+n xoda359
+5
+n xoda360
+32
+n xoda361
+1
+n xoda362
+36
+n xoda363
+0
+n xoda364
+22
+n xoda365
+2
+n xoda366
+6
+n xoda367
+36
+n xoda368
+33
+n xoda369
+6
+n xoda370
+12
+n xoda371
+22
+n xoda372
+19
+n xoda373
+11
+n xoda374
+17
+n xoda375
+34
+n xoda376
+34
+n xoda377
+19
+n xoda378
+26
+n xoda379
+31
+n xoda380
+19
+n xoda381
+18
+n xoda382
+29
+n xoda383
+25
+n xoda384
+6
+n xoda385
+27
+n xoda386
+5
+n xoda387
+24
+n xoda388
+36
+n xoda389
+9
+n xoda390
+28
+n xoda391
+1
+n xoda392
+30
+n xoda393
+32
+n xoda394
+36
+n xoda395
+36
+n xoda396
+8
