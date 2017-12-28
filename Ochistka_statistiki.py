@@ -7,7 +7,7 @@ import win32api, win32con, time
                                     ##
 
 viborka = []                                          ##
-file_obj = open('66cikl.txt')                      ## Создание списка из нагерерированого
+file_obj = open('139cikl.txt')                      ## Создание списка из нагерерированого
 data_list = file_obj.readlines()                      ##
 i = 0
 for line in data_list:                                ##
@@ -18,7 +18,7 @@ file_obj.close()
 print(viborka)
 
 
-file_obj = open('66cikl_och.txt', 'w')
+file_obj = open('139cikl_och.txt', 'w')
 file_obj.writelines("%s\n" % i for i in viborka)
 # for item in viborka:
 #    file_obj.writeline(str(item)+'/n')

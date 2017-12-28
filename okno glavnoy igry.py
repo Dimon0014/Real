@@ -340,9 +340,11 @@ class MyFrame(wx.Frame):
        steps = 0
        seconds = 0
        chet =0
-       chicloVrach = random.randint(395, 433)
+       chicloVrach = random.randint(395, 443)
        while ( steps < chicloVrach):
-           chicloVrach = random.randint(395, 433)
+           screen_control_2 = self.ScreenShotChisla('coord_snapshot_control.txt')
+           p_cntr_2 = screen_control_2.GetData()
+           chicloVrach = random.randint(395, 443)
            start = clock()
            first0 = time.time()
            steps = steps + 1
@@ -364,18 +366,34 @@ class MyFrame(wx.Frame):
                    self.mousePos(dataMouse[2][1])
                    break
            steps_vnutri_vtorogo_cikla = 0
+           steps_vnutri =0
            while (True):
-               time.sleep(0.9)
+               time.sleep(0.8)
                steps_vnutri_vtorogo_cikla = steps_vnutri_vtorogo_cikla + 1
+               screen_control_1 = self.ScreenShotChisla('coord_snapshot_control.txt')
+               time.sleep(0.1)
                screen5 = self.ScreenShotChisla('coord_snapshot.txt')
                p = screen5.GetData()
-               p2 = dataPic[37].GetData()
-               if p == p2:
+               p_cntr_1 = screen_control_1.GetData()
+
+               #p2 = dataPic[37].GetData()
+               if p_cntr_1 == p_cntr_2:
                    print("вращение не закончилось")
                    # prod_cikla = False
+                   steps_vnutri = steps_vnutri+1
+                   if steps_vnutri == 11:
+                       self.mousePos(dataMouse[2][1])
+                       self.leftClick()
+                       print("dopolnitelnyi click")
+
+                   if steps_vnutri == 50:
+                       self.mousePos(dataMouse[2][1])
+                       self.leftClick()
+                       print("dopolnitelnyi click2")
                    continue
                else:
                    # chislo=True
+                   steps_vnutri =0
                    for i in range(len(dataPic)):
                        prod_cikla = True
                        # p = screen.GetData()
@@ -389,17 +407,31 @@ class MyFrame(wx.Frame):
                            # chislo = False
                            prod_cikla = False
 
+                           screen_control_2 = self.ScreenShotChisla('coord_snapshot_control.txt')
+                           p_cntr_2 = screen_control_2.GetData()
                            break
 
                print('steps_vnutri_vtorogo_cikla',steps_vnutri_vtorogo_cikla )
+               if steps_vnutri_vtorogo_cikla == 40:
+                   print('steps_vnutri_vtorogo_cikla_doljen byt_click', steps_vnutri_vtorogo_cikla)
+                   self.mousePos(dataMouse[2][1])
+                   self.leftClick()
+               if steps_vnutri_vtorogo_cikla == 50:
+                   print('steps_vnutri_vtorogo_cikla_doljen byt_2_y_click', steps_vnutri_vtorogo_cikla)
+                   self.mousePos(dataMouse[2][1])
+                   self.leftClick()
 
-               if steps_vnutri_vtorogo_cikla>29:
+               # if steps_vnutri_vtorogo_cikla == 29:
+               #     print('steps_vnutri_vtorogo_cikla', steps_vnutri_vtorogo_cikla)
+               #     self.mousePos(dataMouse[2][1])
+               #     self.leftClick()
+               if steps_vnutri_vtorogo_cikla>120:
                    game.terminate()
                    time.sleep(5)
                    file_obj3 = open('log.txt', 'a')
                    file_obj3.write('cik igry: '+str(self.schet_gig_cikl)+'Beskonechyi vtoroy cikl ' + tme + '\n')
                    file_obj3.close()
-                   time.sleep(600)
+                   time.sleep(180)
                    self.Glavnaja()
                if not prod_cikla:
                    break
@@ -434,8 +466,8 @@ class MyFrame(wx.Frame):
        # time.sleep(1)
        # self.mousePos(dataMouse[46][1])
        game.terminate()
-       time.sleep(1267)
-       if self.schet_gig_cikl <9:
+       time.sleep(1197)
+       if self.schet_gig_cikl <11:
            self.Glavnaja()
    def OnButton(self, event):
         """Called when self.btn1 is clicked"""
