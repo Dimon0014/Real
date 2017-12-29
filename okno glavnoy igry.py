@@ -222,13 +222,13 @@ class MyFrame(wx.Frame):
 
        now = datetime.now()
        now = now + timedelta(hours=0)
-       tme = now.strftime("%d,%m,%y %I.%M.%S")  # %d,%m,%y
+       tme = now.strftime("%d,%m,%y %H.%M.%S")  # %d,%m,%y
        # now = now + timedelta(hours=0)
        return tme
    def Glavnaja(self):
        start1 = clock()
        vhod=True
-       file_obj = open('real_01.txt', 'a')
+       cikl_of_start =0
        file_obj2 = open('chet01.txt', 'a')
        file_obj3 = open('log.txt', 'a')
        dataMouse = self.initial_x_y()
@@ -239,6 +239,11 @@ class MyFrame(wx.Frame):
        # self.leftClick()
 
        while (vhod):
+           cikl_of_start = cikl_of_start+1
+           now_name = datetime.now()
+           tme_name = now_name.strftime("%d,%m,%y %H.%M.%S")
+           name_of_file_real = 'poputka'+str(cikl_of_start)+tme_name
+           file_obj = open(name_of_file_real, 'a')
            time.sleep(0.5)
            self.schet_gig_cikl += 1
            PROCNAME = 'casino.exe'
