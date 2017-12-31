@@ -242,19 +242,21 @@ class MyFrame(wx.Frame):
            cikl_of_start = cikl_of_start+1
            now_name = datetime.now()
            tme_name = now_name.strftime("%d,%m,%y %H.%M.%S")
-           name_of_file_real = 'poputka'+str(cikl_of_start)+tme_name
+           name_of_file_real = 'poputka_'+str(cikl_of_start)+'_data'+tme_name+'.txt'
            file_obj = open(name_of_file_real, 'a')
            time.sleep(0.5)
            self.schet_gig_cikl += 1
            PROCNAME = 'casino.exe'
            for proc in psutil.process_iter():
                try:
-                   if proc.name == PROCNAME:
+                   if proc.name() == PROCNAME:
                        p = psutil.Process(proc.pid)
                        print('psutil', p.username())
                        time.sleep(2)
-                       game.terminate()
-                       #proc.kill()
+                       #game.terminate()
+                       proc.kill()
+                       time.sleep(7)
+                       print('psutil_ubil_process')
                except:
                    print('psutil_oshibka')
                    pass
@@ -338,10 +340,17 @@ class MyFrame(wx.Frame):
                break
        file_obj3.close()
        time.sleep(10)
-       self.onPlacewindow("европейская рулетка премиум - william hill casino")
-       time.sleep(10)
-       self.mousePos(dataMouse[2][1])
-       self.leftClick()
+       try:
+           self.onPlacewindow("европейская рулетка премиум - william hill casino")
+           time.sleep(10)
+           self.mousePos(dataMouse[2][1])
+           self.leftClick()
+       except:
+           print('okno kuda to podevalos_oshibka')
+           game.terminate()
+           time.sleep(40)
+           self.Glavnaja()
+           #pass
        steps = 0
        seconds = 0
        chet =0
@@ -386,12 +395,12 @@ class MyFrame(wx.Frame):
                    print("вращение не закончилось")
                    # prod_cikla = False
                    steps_vnutri = steps_vnutri+1
-                   if steps_vnutri == 11:
+                   if steps_vnutri == 9:
                        self.mousePos(dataMouse[2][1])
                        self.leftClick()
                        print("dopolnitelnyi click")
 
-                   if steps_vnutri == 50:
+                   if steps_vnutri == 20:
                        self.mousePos(dataMouse[2][1])
                        self.leftClick()
                        print("dopolnitelnyi click2")
@@ -418,24 +427,59 @@ class MyFrame(wx.Frame):
 
                print('steps_vnutri_vtorogo_cikla',steps_vnutri_vtorogo_cikla )
                if steps_vnutri_vtorogo_cikla == 40:
-                   print('steps_vnutri_vtorogo_cikla_doljen byt_click', steps_vnutri_vtorogo_cikla)
-                   self.mousePos(dataMouse[2][1])
-                   self.leftClick()
-               if steps_vnutri_vtorogo_cikla == 50:
+                   try:
+                       print('steps_vnutri_vtorogo_cikla_doljen byt_click', steps_vnutri_vtorogo_cikla)
+                       self.onPlacewindow("европейская рулетка премиум - william hill casino")
+                       time.sleep(4)
+
+                       self.mousePos(dataMouse[2][1])
+                       self.leftClick()
+                   except:
+                       print('okno kuda to podevalos_oshibka')
+                       pass
+               if steps_vnutri_vtorogo_cikla == 55:
                    print('steps_vnutri_vtorogo_cikla_doljen byt_2_y_click', steps_vnutri_vtorogo_cikla)
                    self.mousePos(dataMouse[2][1])
                    self.leftClick()
-
+               if steps_vnutri_vtorogo_cikla == 80:
+                   print('steps_vnutri_vtorogo_cikla_doljen byt_2_y_click', steps_vnutri_vtorogo_cikla)
+                   self.mousePos(dataMouse[6][1])
+                   time.sleep(1)
+                   self.mousePos(dataMouse[1][1])
+                   time.sleep(9)
+                   screen3 = self.ScreenShotChisla('coord_snapshot_vhoda.txt')
+                   name_screen3_log3 = 'screen3_log3' + tme + '.bmp'
+                   screen3.SaveFile(name_screen3_log3, wx.BITMAP_TYPE_BMP)
+                   vhod10 = wx.Image('vhod_3.bmp', type=wx.BITMAP_TYPE_ANY)
+                   p00 = screen3.GetData()
+                   p10 = vhod10.GetData()
+                   time.sleep(1)
+                   if p00 == p10:
+                       time.sleep(1)
+                       self.mousePos(dataMouse2[0][1])
+                       time.sleep(1)
+                       self.mousePos(dataMouse2[1][1])
+                   time.sleep(15)
+                   try:
+                     self.onPlacewindow("европейская рулетка премиум - william hill casino")
+                     time.sleep(10)
+                     self.mousePos(dataMouse[2][1])
+                     self.leftClick()
+                   except:
+                       print('okno ne udalos vostanovit to podevalos_oshibka')
+                       pass
                # if steps_vnutri_vtorogo_cikla == 29:
                #     print('steps_vnutri_vtorogo_cikla', steps_vnutri_vtorogo_cikla)
                #     self.mousePos(dataMouse[2][1])
                #     self.leftClick()
-               if steps_vnutri_vtorogo_cikla>120:
+               if steps_vnutri_vtorogo_cikla>100:
                    game.terminate()
                    time.sleep(5)
                    file_obj3 = open('log.txt', 'a')
                    file_obj3.write('cik igry: '+str(self.schet_gig_cikl)+'Beskonechyi vtoroy cikl ' + tme + '\n')
                    file_obj3.close()
+                   file_obj.write('avariynoe zavershenie raboty'  + '\n')
+                   file_obj.close()
                    time.sleep(180)
                    self.Glavnaja()
                if not prod_cikla:
@@ -465,7 +509,7 @@ class MyFrame(wx.Frame):
        file_obj.close()
        file_obj2.close()
        time.sleep(0.6)
-       self.mousePos(dataMouse[6][1])
+       #self.mousePos(dataMouse[6][1])
        time.sleep(0.1)
        # self.mousePos(dataMouse[7][1])
        # time.sleep(1)
