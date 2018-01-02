@@ -225,6 +225,98 @@ class MyFrame(wx.Frame):
        tme = now.strftime("%d,%m,%y %H.%M.%S")  # %d,%m,%y
        # now = now + timedelta(hours=0)
        return tme
+######################## отсюда и до главной  функции ставки и предсказания
+   def last_last_seen_steps_of_simv_01(self, dict, key):  # альтернатива  "last_next_seen_all_steps_1"
+       result = dict[key][0]
+
+       # print('функия next_seen_steps =',result)
+       return result
+
+   def dob_next_seen_1(self,dict, key, steps):  # функция добавления/инициализация шагов с последнего появления
+
+       if (key) in dict:  # проверка на наличие значений
+           last_seen = self.last_last_seen_steps_of_simv_01(dict, key)
+           # print('steps-last_time seen_in_key =', last_seen)
+           # print('печатает dict[key][1][0]', dict[key][1][0])
+           dict[key][1].append(last_seen)
+           dict[key][2] = len(dict[key][1])  # сколько раз уже выпадала
+
+
+       else:  # инициализация
+           dict.update({(key): [0, [steps], 1, key, steps]})  # инициализация
+           # print('key in function =', key)
+
+   def add_step_to_all_1(self,dict):
+       for item in dict:
+           dict[item][0] = dict[item][0] + 1
+           dict[item][4] = dict[item][4] + 1
+
+   def pre1_predskazatel_1(self,key, list_of200, steps_of_predscazan):
+       keys = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28,
+               29, 30, 31, 32, 33, 34, 35, 36]
+       list = list_of200
+
+       for item in keys:
+           if item == key:
+               list.append(key)
+               if len(list) > steps_of_predscazan:
+                   list.pop(0)
+       return list
+
+   def pre2_predskazatel_1(self,list_of200):
+       keys = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28,
+               29, 30, 31, 32, 33, 34, 35, 36]
+       list = list_of200
+       list_par = []
+       for item in keys:
+           list_par.append([item, 0])
+           for it in list:
+               if it == item:
+                   list_par[item][1] = list_par[item][1] + 1
+       return list_par
+       # for it in keys:
+       #     for item in list:
+       #         if item not in d:
+       #             list_par.append([item])
+       #         else:
+       #             d[c] += 1
+
+   def pre3_predskazatel_1(self,list_sort):
+
+       list_sort.sort(key=lambda item: item[1])
+       list_sort.reverse()
+       # nolik = list_sort[0][0]
+       # odin = list_sort[1][0]
+       # dva = list_sort[2][0]
+       # #tri = list_sort[3][0]
+       # result =list_sort[0][0] # random.choice([nolik,odin,dva] )
+       if list_sort[0][1] > 1:
+           result = list_sort[0][0]  # random.choice([nolik,odin,dva] )
+       else:
+           result = 99
+       return result
+
+   def proverka_predskaza_1(self,key, list_of_win_proverki, winer_1, steps):
+       if key == list_of_win_proverki[2]:
+           # print('pered append', list_of_win_proverki_1[2])
+           #list_of_all_Win_1.append(list_of_win_proverki[2])
+           # print('steps',steps,' vyigral key ', key, list_of_win_proverki[2])
+           list_of_win_proverki[1] = 1
+           result = list_of_win_proverki  # первое значение - количество шагов
+           # второе значени флаг сброса продолжения проверки перестать - еденица 1, продолжить ноль 0
+           # третье значение предсказаное число
+       else:
+           list_of_win_proverki[1] = 0
+
+           list_of_win_proverki[0] = list_of_win_proverki[0] + 1
+
+           result = list_of_win_proverki
+
+       # if winer_1 == 99:
+       #     #list_of_win_proverki[0] = list_of_win_proverki[0] - 1 # зачем уменьшать количество шагов, все правильно мы же подрят все шаги считаем
+       #     result = list_of_win_proverki
+       return result
+
    def Glavnaja(self):
        start1 = clock()
        vhod=True
@@ -234,11 +326,22 @@ class MyFrame(wx.Frame):
        dataMouse = self.initial_x_y()
        dataMouse2 = self.initial_x_y2()
        dataPic = self.initial_pic()
+
        # print[dataPic]
 
        # self.leftClick()
 
        while (vhod):
+           sttepers =0
+           list_of_win_proverki_1 = [0, 0, -1, 0, 0, 0, 0]
+           steps_to_win_1 = 0
+           list_of200_1 = []
+           list_par_of200_1 = []
+           list_of_win200_1 = []
+           chislo_of = 99
+           winer_1 = 99
+           dic_ed = {}  # болванка под словарь едениц
+           list_of_steps_toWin_1 = []
            cikl_of_start = cikl_of_start+1
            now_name = datetime.now()
            tme_name = now_name.strftime("%d,%m,%y %H.%M.%S")
@@ -415,6 +518,7 @@ class MyFrame(wx.Frame):
                        p2 = dataPic[i].GetData()
                        if p == p2:
                            print("выпал номер", i)
+                           chislo_of =i
                            #time.sleep(0.05)
                            file_obj.write(str(i) + '\n')
                            time.sleep(0.05)
@@ -423,7 +527,200 @@ class MyFrame(wx.Frame):
 
                            screen_control_2 = self.ScreenShotChisla('coord_snapshot_control.txt')
                            p_cntr_2 = screen_control_2.GetData()
-                           break
+
+                   #################################################################################
+                   ##             здесь мы узнаем число   и начинаем действовать
+                   key1 = chislo_of
+                   print('key1:', key1)
+                   if winer_1 != 99:  # если предсказания нет то и играть не будем
+                       sttepers = sttepers + 1
+                       print('steps:', steps, 'v igre')
+                       print('sttepers:', sttepers)
+
+                       list_of_win_proverki_1 = self.proverka_predskaza_1(key1, list_of_win_proverki_1, winer_1, steps)
+
+
+                       # if list_of_win_proverki_1_0[1] == 1:
+                       #     list_of_win_1_0_all.append(list_of_win_proverki_1_0[2])
+                       if list_of_win_proverki_1[1] == 1:  # если предсказание сбросило активность то назначаем новую цифру выиграша
+                           sttepers = 1
+
+                           #list_of_win_proverki_1_0[7].append(list_of_win_proverki_1_0[2])
+                           steps_to_win_1 = list_of_win_proverki_1[
+                               0]  # забираем в буферную переменную количество шагов до выигрыша
+                           # print('list_of_win_proverki_1[2]', list_of_win_proverki_1[2])
+                           print('key                       ', key1)
+                           #print('steps', steps, 'steps_to_win_1:', steps_to_win_1, ': list_of_win__1[2]', stat_02,'winer_1', winer_1)
+
+
+                           list_of_win_proverki_1[2] = winer_1  # назначение нового числа предсказания _ назначение с опаздыванием на один шаг
+                           list_of_steps_toWin_1.append(steps_to_win_1)
+                           list_of_win_proverki_1[0] = 1  # обнуляем количество шагов до выигрыша
+                           # list_of_win_proverki_1[4] = list_of_win_proverki_1[4]+ 35
+                           # list_of_win_proverki_1[5] = 1
+                           # print(dic_ed[(key)] )
+                       if list_of_win_proverki_1[0] > 54:
+                           list_of_steps_toWin_1.append(60)
+                           list_of_win_proverki_1[0] = 1
+                           list_of_win_proverki_1[1] = 0
+                           sttepers =1
+                           # list_of_win_proverki_1[0] = list_of_win_proverki_1[0] + 1
+
+                           # list_of_win_proverki_1[2] = winer_1 # назначение нового числа предсказания _ назначение с опаздыванием на один шаг
+                        # типа здесь делаем ставки на то число которое в list_of_win_proverki_1[2]
+                       if sttepers <37:# шагов меньше 36 ставим ставку
+                           self.mousePos(dataMouse[3][1]) # минимальная ставка
+                           time.sleep(0.05)
+                           if  list_of_win_proverki_1[2] ==0:
+                              self.mousePos(dataMouse[8][1]) # ставка на число 0
+                              print('stavka na chislo: 0')
+                           if  list_of_win_proverki_1[2] ==1:
+                              self.mousePos(dataMouse[9][1]) # ставка на число 1
+                              print('stavka na chislo: 1')
+                           if list_of_win_proverki_1[2] == 2:
+                               self.mousePos(dataMouse[10][1])  # ставка на число 2
+                               print('stavka na chislo: 2')
+                           if list_of_win_proverki_1[2] == 3:
+                               self.mousePos(dataMouse[11][1])  # ставка на число 3
+                               print('stavka na chislo: 3')
+                           if list_of_win_proverki_1[2] == 4:
+                               self.mousePos(dataMouse[12][1])  # ставка на число 4
+                               print('stavka na chislo: 4')
+                           if list_of_win_proverki_1[2] == 5:
+                               self.mousePos(dataMouse[13][1])  # ставка на число 5
+                               print('stavka na chislo: 5')
+                           if list_of_win_proverki_1[2] == 6:
+                               self.mousePos(dataMouse[14][1])  # ставка на число 6
+                               print('stavka na chislo: 6')
+                           if list_of_win_proverki_1[2] == 7:
+                               self.mousePos(dataMouse[15][1])  # ставка на число 7
+                               print('stavka na chislo: 7')
+                           if list_of_win_proverki_1[2] == 8:
+                               self.mousePos(dataMouse[16][1])  # ставка на число 8
+                               print('stavka na chislo: 8')
+                           if list_of_win_proverki_1[2] == 9:
+                               self.mousePos(dataMouse[17][1])  # ставка на число 9
+                               print('stavka na chislo: 9')
+                           if list_of_win_proverki_1[2] == 10:
+                               self.mousePos(dataMouse[18][1])  # ставка на число 10
+                               print('stavka na chislo: 10')
+                           if list_of_win_proverki_1[2] == 11:
+                               self.mousePos(dataMouse[19][1])  # ставка на число 11
+                               print('stavka na chislo: 11')
+                           if list_of_win_proverki_1[2] == 12:
+                               self.mousePos(dataMouse[20][1])  # ставка на число 12
+                               print('stavka na chislo: 12')
+                           if list_of_win_proverki_1[2] == 13:
+                               self.mousePos(dataMouse[21][1])  # ставка на число 13
+                               print('stavka na chislo: 13')
+                           if list_of_win_proverki_1[2] == 14:
+                               self.mousePos(dataMouse[22][1])  # ставка на число 14
+                               print('stavka na chislo: 14')
+                           if list_of_win_proverki_1[2] == 15:
+                               self.mousePos(dataMouse[23][1])  # ставка на число 15
+                               print('stavka na chislo: 15')
+                           if list_of_win_proverki_1[2] == 16:
+                               self.mousePos(dataMouse[24][1])  # ставка на число 16
+                               print('stavka na chislo: 16')
+                           if list_of_win_proverki_1[2] == 17:
+                               self.mousePos(dataMouse[25][1])  # ставка на число 17
+                               print('stavka na chislo: 17')
+                           if list_of_win_proverki_1[2] == 18:
+                               self.mousePos(dataMouse[26][1])  # ставка на число 18
+                               print('stavka na chislo: 18')
+                           if list_of_win_proverki_1[2] == 19:
+                               self.mousePos(dataMouse[27][1])  # ставка на число 19
+                               print('stavka na chislo: 19')
+                           if list_of_win_proverki_1[2] == 20:
+                               self.mousePos(dataMouse[28][1])  # ставка на число 20
+                               print('stavka na chislo: 20')
+                           if list_of_win_proverki_1[2] == 21:
+                               self.mousePos(dataMouse[29][1])  # ставка на число 21
+                               print('stavka na chislo: 21')
+                           if list_of_win_proverki_1[2] == 22:
+                               self.mousePos(dataMouse[30][1])  # ставка на число 22
+                               print('stavka na chislo: 22')
+                           if list_of_win_proverki_1[2] == 23:
+                               self.mousePos(dataMouse[31][1])  # ставка на число 23
+                               print('stavka na chislo: 23')
+                           if list_of_win_proverki_1[2] == 24:
+                               self.mousePos(dataMouse[32][1])  # ставка на число 24
+                               print('stavka na chislo: 24')
+                           if list_of_win_proverki_1[2] == 25:
+                               self.mousePos(dataMouse[33][1])  # ставка на число 25
+                               print('stavka na chislo: 25')
+                           if list_of_win_proverki_1[2] == 26:
+                               self.mousePos(dataMouse[34][1])  # ставка на число 26
+                               print('stavka na chislo: 26')
+                           if list_of_win_proverki_1[2] == 27:
+                               self.mousePos(dataMouse[35][1])  # ставка на число 27
+                               print('stavka na chislo: 27')
+                           if list_of_win_proverki_1[2] == 28:
+                               self.mousePos(dataMouse[36][1])  # ставка на число 28
+                               print('stavka na chislo: 28')
+                           if list_of_win_proverki_1[2] == 29:
+                               self.mousePos(dataMouse[37][1])  # ставка на число 29
+                               print('stavka na chislo: 29')
+                           if list_of_win_proverki_1[2] == 30:
+                               self.mousePos(dataMouse[38][1])  # ставка на число 30
+                               print('stavka na chislo: 30')
+                           if list_of_win_proverki_1[2] == 31:
+                               self.mousePos(dataMouse[39][1])  # ставка на число 31
+                               print('stavka na chislo: 31')
+                           if list_of_win_proverki_1[2] == 32:
+                               self.mousePos(dataMouse[40][1])  # ставка на число 32
+                               print('stavka na chislo: 32')
+                           if list_of_win_proverki_1[2] == 33:
+                               self.mousePos(dataMouse[41][1])  # ставка на число 33
+                               print('stavka na chislo: 33')
+                           if list_of_win_proverki_1[2] == 34:
+                               self.mousePos(dataMouse[42][1])  # ставка на число 34
+                               print('stavka na chislo: 34')
+                           if list_of_win_proverki_1[2] == 35:
+                               self.mousePos(dataMouse[43][1])  # ставка на число 35
+                               print('stavka na chislo: 35')
+                           if list_of_win_proverki_1[2] == 36:
+                               self.mousePos(dataMouse[44][1])  # ставка на число 36
+                               print('stavka na chislo: 36')
+                           time.sleep(0.05)
+                           self.mousePos(dataMouse[2][1])
+                           self.leftClick()
+                   #         break
+                       else:
+                            time.sleep(0.05)
+                            self.mousePos(dataMouse2[2][1])
+                            time.sleep(0.1)
+                            self.leftClick()
+                            time.sleep(0.1)
+                            self.mousePos(dataMouse[2][1])
+                  #         break
+                   else:
+                        time.sleep(0.05)
+                        self.mousePos(dataMouse2[2][1])
+                        time.sleep(0.1)
+                        self.leftClick()
+                        time.sleep(0.1)
+
+                #     # self.mousePos(dataMouse[2][1])
+                   #     # self.leftClick()
+                   #     break
+                   list_of200_1 = self.pre1_predskazatel_1(key1, list_of200_1,8)  # шаг нахождения винера##############################################################
+
+                   list_par_of200_1 = self.pre2_predskazatel_1(list_of200_1)
+                   winer_1 = self.pre3_predskazatel_1(list_par_of200_1)
+                   if list_of_win_proverki_1[2] == -1:
+                       list_of_win_proverki_1[2] = 0
+
+
+
+                   #best_chisla = pre3_predskazatel_1_all(list_par_of200_1)
+                   ##################################### --- УЧЕТ ЕДЕНИЦ БЛОК НЕ ТРОГАЕМ --- ######################
+                   ################################################################################################
+                   self.dob_next_seen_1(dic_ed, key1, steps)  # создание\ обновление словаря едениц ###############
+                   self.add_step_to_all_1(dic_ed)  # добавление шагов всем еденицам ###############################
+                   ################################################################################################
+                   break
+
 
                print('steps_vnutri_vtorogo_cikla',steps_vnutri_vtorogo_cikla )
                if steps_vnutri_vtorogo_cikla == 40:

@@ -62,7 +62,7 @@ class OtherFrame(wx.Frame):
                 # self.instructions.SetLabel(msg3)
                 if self.i == len(self.coord_hlp):
                     #print(self.coord)
-                    with open('xy_coord2.txt', 'w') as jsonfile: json.dump(self.coord, jsonfile)
+                    with open('xy_coord_snjatia_stavki.txt', 'w') as jsonfile: json.dump(self.coord, jsonfile)
                 break
 
     # ----------------------------------------------------------------------
