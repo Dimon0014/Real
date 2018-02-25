@@ -240,9 +240,11 @@ class MyFrame(wx.Frame):
 
        while (vhod):
            cikl_of_start = cikl_of_start+1
+           nomer_txt_fila = 221
+           nomer_txt_fila = nomer_txt_fila+cikl_of_start
            now_name = datetime.now()
            tme_name = now_name.strftime("%d,%m,%y %H.%M.%S")
-           name_of_file_real = 'poputka_'+str(cikl_of_start)+'_data'+tme_name+'.txt'
+           name_of_file_real = str(nomer_txt_fila)+'cikl_'+str(cikl_of_start)+'_data'+tme_name+'.txt'
            file_obj = open(name_of_file_real, 'a')
            time.sleep(0.5)
            self.schet_gig_cikl += 1
@@ -263,7 +265,7 @@ class MyFrame(wx.Frame):
            time.sleep(3)
            game = subprocess.Popen(["C:\Program Files (x86)\William Hill Casino\casino.exe"], stdin=subprocess.PIPE,
                                    stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=False)
-           time.sleep(80)
+           time.sleep(90)
            screen = self.ScreenShotChisla('coord_snapshot_vhoda.txt')
            tme = self.vremja_str()
            name_screen_log1 = 'screen_log1'+tme+'.bmp'
@@ -300,7 +302,7 @@ class MyFrame(wx.Frame):
                time.sleep(5)
                time.sleep(1)
                game.terminate()
-               time.sleep(3720)
+               time.sleep(320)
                continue
            if p3 == p:
                print('zavis pri zagruzke')
@@ -309,7 +311,7 @@ class MyFrame(wx.Frame):
                time.sleep(5)
                time.sleep(1)
                game.terminate()
-               time.sleep(3720)
+               time.sleep(320)
                continue
 
            if  p4 == p1:
@@ -341,7 +343,7 @@ class MyFrame(wx.Frame):
        file_obj3.close()
        time.sleep(10)
        try:
-           self.onPlacewindow("европейская рулетка премиум - william hill casino")
+           self.onPlacewindow("premium european roulette - william hill casino")
            time.sleep(10)
            self.mousePos(dataMouse[2][1])
            self.leftClick()
@@ -354,11 +356,11 @@ class MyFrame(wx.Frame):
        steps = 0
        seconds = 0
        chet =0
-       chicloVrach = random.randint(395, 443)
+       chicloVrach = random.randint(196, 205)
        while ( steps < chicloVrach):
            screen_control_2 = self.ScreenShotChisla('coord_snapshot_control.txt')
            p_cntr_2 = screen_control_2.GetData()
-           chicloVrach = random.randint(395, 443)
+           chicloVrach = random.randint(196, 205)
            start = clock()
            first0 = time.time()
            steps = steps + 1
@@ -515,8 +517,8 @@ class MyFrame(wx.Frame):
        # time.sleep(1)
        # self.mousePos(dataMouse[46][1])
        game.terminate()
-       time.sleep(1097)
-       if self.schet_gig_cikl <11:
+       time.sleep(490)
+       if self.schet_gig_cikl <26:
            self.Glavnaja()
    def OnButton(self, event):
         """Called when self.btn1 is clicked"""

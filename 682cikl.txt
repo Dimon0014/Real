@@ -1,0 +1,70 @@
+n xoda1
+15
+n xoda2
+10
+n xoda3
+2
+n xoda4
+21
+n xoda5
+21
+n xoda6
+10
+n xoda7
+8
+n xoda8
+19
+n xoda9
+21
+n xoda10
+25
+n xoda11
+29
+n xoda12
+35
+n xoda13
+9
+n xoda14
+32
+n xoda15
+3
+n xoda16
+30
+n xoda17
+36
+n xoda18
+17
+n xoda19
+18
+n xoda20
+29
+n xoda21
+11
+n xoda22
+3
+n xoda23
+20
+n xoda24
+5
+n xoda25
+36
+n xoda26
+26
+n xoda27
+26
+n xoda28
+13
+n xoda29
+0
+n xoda30
+10
+n xoda31
+29
+n xoda32
+28
+n xoda33
+18
+n xoda34
+26
+n xoda35
+avariynoe zavershenie raboty

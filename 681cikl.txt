@@ -1,0 +1,352 @@
+n xoda1
+29
+n xoda2
+30
+n xoda3
+29
+n xoda4
+15
+n xoda5
+30
+n xoda6
+31
+n xoda7
+24
+n xoda8
+15
+n xoda9
+4
+n xoda10
+33
+n xoda11
+25
+n xoda12
+4
+n xoda13
+1
+n xoda14
+25
+n xoda15
+23
+n xoda16
+28
+n xoda17
+1
+n xoda18
+35
+n xoda19
+9
+n xoda20
+19
+n xoda21
+24
+n xoda22
+22
+n xoda23
+35
+n xoda24
+5
+n xoda25
+0
+n xoda26
+11
+n xoda27
+23
+n xoda28
+10
+n xoda29
+6
+n xoda30
+16
+n xoda31
+19
+n xoda32
+33
+n xoda33
+2
+n xoda34
+33
+n xoda35
+2
+n xoda36
+7
+n xoda37
+28
+n xoda38
+3
+n xoda39
+21
+n xoda40
+27
+n xoda41
+5
+n xoda42
+11
+n xoda43
+12
+n xoda44
+25
+n xoda45
+17
+n xoda46
+21
+n xoda47
+14
+n xoda48
+30
+n xoda49
+13
+n xoda50
+33
+n xoda51
+6
+n xoda52
+18
+n xoda53
+30
+n xoda54
+9
+n xoda55
+17
+n xoda56
+35
+n xoda57
+0
+n xoda58
+27
+n xoda59
+15
+n xoda60
+29
+n xoda61
+18
+n xoda62
+25
+n xoda63
+13
+n xoda64
+10
+n xoda65
+23
+n xoda66
+4
+n xoda67
+31
+n xoda68
+34
+n xoda69
+7
+n xoda70
+30
+n xoda71
+30
+n xoda72
+2
+n xoda73
+35
+n xoda74
+34
+n xoda75
+8
+n xoda76
+36
+n xoda77
+13
+n xoda78
+23
+n xoda79
+5
+n xoda80
+25
+n xoda81
+1
+n xoda82
+19
+n xoda83
+22
+n xoda84
+11
+n xoda85
+12
+n xoda86
+19
+n xoda87
+24
+n xoda88
+29
+n xoda89
+11
+n xoda90
+28
+n xoda91
+16
+n xoda92
+36
+n xoda93
+27
+n xoda94
+20
+n xoda95
+20
+n xoda96
+28
+n xoda97
+32
+n xoda98
+8
+n xoda99
+32
+n xoda100
+2
+n xoda101
+28
+n xoda102
+21
+n xoda103
+6
+n xoda104
+5
+n xoda105
+29
+n xoda106
+0
+n xoda107
+10
+n xoda108
+19
+n xoda109
+0
+n xoda110
+26
+n xoda111
+15
+n xoda112
+26
+n xoda113
+8
+n xoda114
+26
+n xoda115
+28
+n xoda116
+11
+n xoda117
+20
+n xoda118
+35
+n xoda119
+31
+n xoda120
+23
+n xoda121
+36
+n xoda122
+26
+n xoda123
+6
+n xoda124
+12
+n xoda125
+14
+n xoda126
+9
+n xoda127
+28
+n xoda128
+29
+n xoda129
+4
+n xoda130
+36
+n xoda131
+14
+n xoda132
+31
+n xoda133
+20
+n xoda134
+31
+n xoda135
+26
+n xoda136
+9
+n xoda137
+32
+n xoda138
+29
+n xoda139
+33
+n xoda140
+16
+n xoda141
+33
+n xoda142
+7
+n xoda143
+22
+n xoda144
+12
+n xoda145
+23
+n xoda146
+26
+n xoda147
+34
+n xoda148
+1
+n xoda149
+21
+n xoda150
+22
+n xoda151
+20
+n xoda152
+19
+n xoda153
+12
+n xoda154
+21
+n xoda155
+35
+n xoda156
+5
+n xoda157
+10
+n xoda158
+0
+n xoda159
+13
+n xoda160
+9
+n xoda161
+19
+n xoda162
+7
+n xoda163
+8
+n xoda164
+13
+n xoda165
+34
+n xoda166
+27
+n xoda167
+25
+n xoda168
+17
+n xoda169
+7
+n xoda170
+18
+n xoda171
+7
+n xoda172
+26
+n xoda173
+36
+n xoda174
+22
+n xoda175
+26
+n xoda176
+avariynoe zavershenie raboty

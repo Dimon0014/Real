@@ -554,6 +554,7 @@ class MyFrame(wx.Frame):
 
 
                            list_of_win_proverki_1[2] = winer_1  # назначение нового числа предсказания _ назначение с опаздыванием на один шаг
+                           print('winer_1', winer_1 )
                            list_of_steps_toWin_1.append(steps_to_win_1)
                            list_of_win_proverki_1[0] = 1  # обнуляем количество шагов до выигрыша
                            # list_of_win_proverki_1[4] = list_of_win_proverki_1[4]+ 35
@@ -697,7 +698,8 @@ class MyFrame(wx.Frame):
                    else:
                         time.sleep(0.05)
                         self.mousePos(dataMouse2[2][1])
-                        time.sleep(0.1)
+                        time.sleep(0.5)
+                        self.mousePos(dataMouse2[2][1])
                         self.leftClick()
                         time.sleep(0.1)
 

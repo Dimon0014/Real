@@ -40,7 +40,7 @@ class MyFrame(wx.Frame):
         x_cord2 = int(x_cord2)
         y_cord2 = int(y_cord2)
         coordinaty_snap = [x_cord,y_cord,x_cord2,y_cord2]
-        with open('coord_snapshot.txt', 'w') as jsonfile: json.dump(coordinaty_snap, jsonfile)  # сохраняем в файл
+        with open('coord_snapshot_amount_stavki.txt', 'w') as jsonfile: json.dump(coordinaty_snap, jsonfile)  # сохраняем в файл
 
 
         # for i in range(len(self.coord_hlp)):
