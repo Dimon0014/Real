@@ -236,7 +236,7 @@ class MyFrame(wx.Frame):
        dataMouse2 = self.initial_x_y2()
        dataPic = self.initial_pic()
        # print[dataPic]
-       nomer_txt_fila = 900
+       nomer_txt_fila = 1500
        # self.leftClick()
 
        while (vhod):

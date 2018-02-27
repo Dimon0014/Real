@@ -1,0 +1,10 @@
+n xoda1
+19
+n xoda2
+20
+n xoda3
+35
+n xoda4
+35
+n xoda5
+15

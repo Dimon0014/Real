@@ -1,0 +1,397 @@
+n xoda1
+31
+n xoda2
+24
+n xoda3
+12
+n xoda4
+12
+n xoda5
+10
+n xoda6
+31
+n xoda7
+30
+n xoda8
+4
+n xoda9
+9
+n xoda10
+27
+n xoda11
+8
+n xoda12
+30
+n xoda13
+25
+n xoda14
+0
+n xoda15
+4
+n xoda16
+17
+n xoda17
+0
+n xoda18
+34
+n xoda19
+24
+n xoda20
+31
+n xoda21
+20
+n xoda22
+30
+n xoda23
+21
+n xoda24
+12
+n xoda25
+8
+n xoda26
+5
+n xoda27
+10
+n xoda28
+1
+n xoda29
+1
+n xoda30
+31
+n xoda31
+33
+n xoda32
+18
+n xoda33
+33
+n xoda34
+15
+n xoda35
+28
+n xoda36
+17
+n xoda37
+8
+n xoda38
+10
+n xoda39
+2
+n xoda40
+29
+n xoda41
+29
+n xoda42
+27
+n xoda43
+23
+n xoda44
+26
+n xoda45
+28
+n xoda46
+28
+n xoda47
+19
+n xoda48
+2
+n xoda49
+27
+n xoda50
+7
+n xoda51
+20
+n xoda52
+7
+n xoda53
+16
+n xoda54
+1
+n xoda55
+33
+n xoda56
+0
+n xoda57
+19
+n xoda58
+13
+n xoda59
+35
+n xoda60
+0
+n xoda61
+3
+n xoda62
+2
+n xoda63
+22
+n xoda64
+30
+n xoda65
+28
+n xoda66
+32
+n xoda67
+5
+n xoda68
+3
+n xoda69
+18
+n xoda70
+36
+n xoda71
+5
+n xoda72
+24
+n xoda73
+10
+n xoda74
+24
+n xoda75
+29
+n xoda76
+20
+n xoda77
+9
+n xoda78
+8
+n xoda79
+4
+n xoda80
+14
+n xoda81
+34
+n xoda82
+34
+n xoda83
+19
+n xoda84
+4
+n xoda85
+18
+n xoda86
+25
+n xoda87
+31
+n xoda88
+4
+n xoda89
+33
+n xoda90
+20
+n xoda91
+4
+n xoda92
+35
+n xoda93
+8
+n xoda94
+17
+n xoda95
+3
+n xoda96
+34
+n xoda97
+31
+n xoda98
+32
+n xoda99
+36
+n xoda100
+21
+n xoda101
+24
+n xoda102
+4
+n xoda103
+28
+n xoda104
+2
+n xoda105
+15
+n xoda106
+16
+n xoda107
+10
+n xoda108
+36
+n xoda109
+9
+n xoda110
+21
+n xoda111
+11
+n xoda112
+23
+n xoda113
+20
+n xoda114
+7
+n xoda115
+11
+n xoda116
+20
+n xoda117
+19
+n xoda118
+2
+n xoda119
+17
+n xoda120
+10
+n xoda121
+31
+n xoda122
+8
+n xoda123
+28
+n xoda124
+24
+n xoda125
+2
+n xoda126
+10
+n xoda127
+9
+n xoda128
+7
+n xoda129
+20
+n xoda130
+5
+n xoda131
+23
+n xoda132
+7
+n xoda133
+23
+n xoda134
+13
+n xoda135
+19
+n xoda136
+8
+n xoda137
+19
+n xoda138
+18
+n xoda139
+18
+n xoda140
+9
+n xoda141
+24
+n xoda142
+7
+n xoda143
+5
+n xoda144
+33
+n xoda145
+35
+n xoda146
+31
+n xoda147
+32
+n xoda148
+9
+n xoda149
+9
+n xoda150
+32
+n xoda151
+20
+n xoda152
+11
+n xoda153
+13
+n xoda154
+30
+n xoda155
+5
+n xoda156
+19
+n xoda157
+17
+n xoda158
+16
+n xoda159
+21
+n xoda160
+6
+n xoda161
+36
+n xoda162
+16
+n xoda163
+22
+n xoda164
+24
+n xoda165
+33
+n xoda166
+14
+n xoda167
+28
+n xoda168
+8
+n xoda169
+22
+n xoda170
+4
+n xoda171
+11
+n xoda172
+26
+n xoda173
+20
+n xoda174
+12
+n xoda175
+10
+n xoda176
+32
+n xoda177
+4
+n xoda178
+30
+n xoda179
+6
+n xoda180
+26
+n xoda181
+13
+n xoda182
+32
+n xoda183
+25
+n xoda184
+3
+n xoda185
+5
+n xoda186
+0
+n xoda187
+24
+n xoda188
+8
+n xoda189
+1
+n xoda190
+7
+n xoda191
+3
+n xoda192
+18
+n xoda193
+29
+n xoda194
+0
+n xoda195
+22
+n xoda196
+24
+n xoda197
+23
+n xoda198
+10
+vremja raboty1749.8738573617602

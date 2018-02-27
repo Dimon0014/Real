@@ -1,0 +1,66 @@
+n xoda1
+32
+n xoda2
+3
+n xoda3
+15
+n xoda4
+5
+n xoda5
+32
+n xoda6
+31
+n xoda7
+27
+n xoda8
+22
+n xoda9
+14
+n xoda10
+16
+n xoda11
+7
+n xoda12
+24
+n xoda13
+16
+n xoda14
+29
+n xoda15
+36
+n xoda16
+13
+n xoda17
+9
+n xoda18
+35
+n xoda19
+24
+n xoda20
+2
+n xoda21
+1
+n xoda22
+12
+n xoda23
+17
+n xoda24
+0
+n xoda25
+19
+n xoda26
+35
+n xoda27
+23
+n xoda28
+36
+n xoda29
+25
+n xoda30
+24
+n xoda31
+35
+n xoda32
+20
+n xoda33
+2
